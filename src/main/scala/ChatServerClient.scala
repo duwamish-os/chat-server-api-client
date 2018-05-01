@@ -16,7 +16,7 @@ object ChatServerClient {
 
     object posts {
 
-      private val listRequest = client.get("posts").accept("application/json")
+      private val listRequest = client.get("posts").withHeader("a", "b").accept("application/json")
       private val getRequest = (id: Int) => client.get(s"posts/$id").accept("application/json")
 
       def list() = listRequest.send[Seq[Post]]()
